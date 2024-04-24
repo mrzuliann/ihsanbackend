@@ -1,0 +1,96 @@
+@extends('layouts.app')
+
+@section('breadcrumb')
+<div class="col-12 col-md-6 order-md-1 order-last">
+    <h3>Jam Hari Presensi </h3>
+    <p class="text-subtitle text-muted">Halaman Jam Hari Presensi.</p>
+</div>
+<div class="col-12 col-md-6 order-md-2 order-first">
+    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{{ url('dashboard') }}">Jam Hari Presensi</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                Halaman Jam Presensi
+            </li>
+        </ol>
+    </nav>
+</div>
+@endsection
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">Presensi Hari Jam</div>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('presensihourday-update', ['phd_id' => $phd_id]) }}" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="hari">Hari</label>
+                                <select name="hari" id="hari" class="form-control select2">
+                                    <option value="">Pilih Hari</option>
+                                    @foreach($day as $value)
+                                        <option value="{{$value}}" {{ old('hari', $data->hari) == $value ? 'selected' : '' }}>{{$value}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="shift">Shift</label>
+                                <select name="shift" id="shift" class="form-control select2">
+                                    <option value="0">Pilih Shift</option>
+                                    @foreach($shift as $value)
+                                    <option value="{{$value->shift_id}}" {{ old('shift', $data->shift_id) == $value->shift_id ? 'selected' : '' }}>{{$value->shift_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="jam_absen">Jam Absen</label>
+                                <select name="jam_absen" id="jam_absen" class="form-control select2">
+                                    <option value="">Pilih Jam Absen</option>
+                                    @foreach($presensihour as $value)
+                                    <option value="{{$value->id}}" {{ old('jam_absen', $data->jam_absen) == $value->id ? 'selected' : '' }}>{{$value->ph_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="school">Sekolah</label>
+                                <select name="school" id="school" class="form-control select2">
+                                    <option value="0">Semua Sekolah</option>
+                                    @foreach($school as $value)
+                                    <option value="{{$value->id}}" {{ old('school', $data->school_id) == $value->id ? 'selected' : '' }}>{{$value->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="ph_time_start">Mulai</label>
+                                <input type="time" class="form-control" id="ph_time_start" name="ph_time_start" aria-describedby="emailHelp" value="{{ old('ph_time_start', $data->ph_time_start) }}">
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="ph_time_end">Sampai</label>
+                                <input type="time" class="form-control" id="ph_time_end" name="ph_time_end" aria-describedby="emailHelp" value="{{ old('ph_time_end', $data->ph_time_end) }}">
+                            </div>
+                            {{-- <button type="submit" class="btn btn-danger mt-3"><a href="{{ URL::previous() }}">Go Back</a></button> --}}
+                            <button type="submit" class="btn btn-primary mt-3">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" class="init">
+    $(document).ready(function () {
+        var table = $('#example').DataTable({
+            rowReorder: {
+                selector: 'td:nth-child(2)'
+            },
+            responsive: true
+        });
+    });
+</script>
+@endsection

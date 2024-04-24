@@ -1,0 +1,26 @@
+@media print {
+    a{
+        text-decoration: none !important;
+        color: #000 !important;
+    }
+    a.btn{
+        background: none !important;
+        color: #0b0b0b !important;
+        border: none !important;
+    }
+    button.btn{
+        border: none !important;
+    }
+
+    .page-break-before{
+        page-break-before: always;
+        page-break-after: always;
+    }
+
+    td,th{
+        border: 1px solid #333 !important;
+    }
+    table.table{
+        border-collapse: collapse !important;
+    }
+}
