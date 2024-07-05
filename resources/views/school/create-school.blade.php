@@ -8,24 +8,24 @@
                 <div class="card-header">Daftar Sekolah</div>
 
                 <div class="card-body">
-                    <form method="POST"  action="{{ url('store-school') }}" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <div class="form-group">
+                    <form method="POST" action="{{ route('school.store') }}" enctype="multipart/form-data">
+                      {{ csrf_field() }}
+                      <div class="form-group">
                         <label for="name">Nama Sekolah</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" name="name" aria-describedby="name">
-                    </div>
-                        <label for="sekolah_lat">Latitude: </label>
-                        <input type="text" id="latitude" name="latitude"/>
-                        <label for="sekolah_lng">Longitude: </label>
-                        <input type="text" id="longitude" name="longitude"/>
-                        <label for="sekolah_radius">Radius: </label>
-                        <input type="text" id="radius" value="50" name="radius" />
-                        <br><br>
-                        <div id="map" style="width:800px; height:400px; background-color:#000000;">
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                      </div>
+                      <label for="sekolah_lat">Latitude: </label>
+                      <input type="text" id="latitude" name="latitude" />
+                      <label for="sekolah_lng">Longitude: </label>
+                      <input type="text" id="longitude" name="longitude" />
+                      <label for="sekolah_radius">Radius: </label>
+                      <input type="text" id="radius" value="50" name="radius" />
+                      <br><br>
+                      <div id="map" style="width:800px; height:400px; background-color:#000000;">
+                      </div>
+                      <button type="submit" class="btn btn-primary mt-3">Submit</button>
                     </form>
-                </div>
+                  </div>
             </div>
         </div>
 

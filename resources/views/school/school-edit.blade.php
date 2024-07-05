@@ -8,11 +8,11 @@
                 <div class="card-header">Daftar Sekolah</div>
 
                 <div class="card-body">
-                    <form method="POST"  action="{{ url('store-school') }}" enctype="multipart/form-data">
+                    <form method="POST"  action="{{ route('school.store') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="name">Nama Sekolah</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" name="name" aria-describedby="name">
+                        <input type="text" class="form-control" id="exampleInputEmail1" value="{{ old('name', $school->name) }}" name="name" aria-describedby="name">
                     </div>
                     <form>
                         <label for="sekolah_lat">Latitude: </label>
@@ -55,7 +55,7 @@ $(document).ready(function () {
 </script>
 
  <!-- JAVASCRIPT -->
- <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false'></script>
+ <script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyD7R6gDLqkVN6FvMZW89hqFlfLq7u9cHfI'></script>
  <script type="text/javascript" src="jquery-1.4.4.min.js"></script>
 
  <script type="text/javascript">

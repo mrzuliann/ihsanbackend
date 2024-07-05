@@ -106,17 +106,222 @@
             </style>
            <p>Presentasi Kehadiran</p>
         </form>
-        <p>Total Hadir: {{ $totalHadir ?? '' }}</p>
-        <p>Total Tidak Hadir: {{ $totalTidakHadir ?? '' }}</p>
-        <p>Total Izin: {{ $totalIzin ?? '' }}</p>
-        <p>Total Tugas: {{ $totalTugas ?? '' }}</p>
-        <p>Total Sakit: {{ $totalSakit ?? '' }}</p>
-        <p>Total Cuti: {{ $totalCuti ?? '' }}</p>
-        <p>Total Terlambat: {{ $totalTerlambat ?? '' }}</p>
-        <p>Total Pulang Cepat: {{ $totalPulangCepat ?? '' }}</p>
-        <p>Jumlah Terlambat: {{ $jumlahTerlambat ?? '' }}</p>
-        <p>Jumlah Tepat Waktu: {{ $jumlahTepatWaktu ?? '' }}</p>
-        <p>Persentase Kehadiran: {{ $persentaseHadir ?? '' }}%</p>
+        <div class="col-6 col-lg-3 col-md-6">
+            <div class="card">
+              <div class="card-body px-4 py-4-5">
+                <div class="row">
+                  <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                    <div class="stats-icon red mb-2">
+                      <i class="iconly-boldBookmark"></i>
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                    <h6 class="text-muted font-semibold">Total Hadir:</h6>
+                    <h6 class="font-extrabold mb-0"> {{ $totalHadir ?? '' }}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-lg-3 col-md-6">
+            <div class="card">
+              <div class="card-body px-4 py-4-5">
+                <div class="row">
+                  <div class="col-md-4  col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                    <div class="stats-icon red mb-2">
+                      <i class="iconly-boldBookmark"></i>
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                    <h6 class="text-muted font-semibold">Total Tidak Hadir:</h6>
+                    <h6 class="font-extrabold mb-0">  {{ $totalTidakHadir ?? '' }}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 col-md-6">
+            <div class="card">
+              <div class="card-body px-4 py-4-5">
+                <div class="row">
+                  <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                    <div class="stats-icon red mb-2">
+                      <i class="iconly-boldBookmark"></i>
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                    <h6 class="text-muted font-semibold">Total Izin</h6>
+                    <h6 class="font-extrabold mb-0">  {{ $totalIzin ?? '' }}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 col-md-6">
+            <div class="card">
+              <div class="card-body px-4 py-4-5">
+                <div class="row">
+                  <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                    <div class="stats-icon red mb-2">
+                      <i class="iconly-boldBookmark"></i>
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                    <h6 class="text-muted font-semibold">Total Tugas:</h6>
+                    <h6 class="font-extrabold mb-0">  {{ $totalTugas ?? '' }}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 col-md-6">
+            <div class="card">
+              <div class="card-body px-4 py-4-5">
+                <div class="row">
+                  <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                    <div class="stats-icon red mb-2">
+                      <i class="iconly-boldBookmark"></i>
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                    <h6 class="text-muted font-semibold">Total Sakit:</h6>
+                    <h6 class="font-extrabold mb-0">  {{ $totalSakit ?? '' }}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 col-md-6">
+            <div class="card">
+              <div class="card-body px-4 py-4-5">
+                <div class="row">
+                  <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                    <div class="stats-icon red mb-2">
+                      <i class="iconly-boldBookmark"></i>
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                    <h6 class="text-muted font-semibold">Total Cuti:</h6>
+                    <h6 class="font-extrabold mb-0">  {{ $totalCuti ?? '' }}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3 col-md-6">
+            <div class="card">
+              <div class="card-body px-4 py-4-5">
+                <div class="row">
+                  <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                    <div class="stats-icon red mb-2">
+                      <i class="iconly-boldBookmark"></i>
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                    <h6 class="text-muted font-semibold">Total Terlambat:</h6>
+                    <h6 class="font-extrabold mb-0">  {{ $totalTerlambat ?? '' }}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <!-- Total Cuti -->
+            <div class="col-6 col-lg-3 col-md-6">
+              <div class="card">
+                <div class="card-body px-4 py-4-5">
+                  <div class="row">
+                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                      <div class="stats-icon green mb-2">
+                        <i class="iconly-boldCalendar"></i>
+                      </div>
+                    </div>
+                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                      <h6 class="text-muted font-semibold">Total Cuti:</h6>
+                      <h6 class="font-extrabold mb-0">{{ $totalCuti ?? '' }}</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Total Pulang Cepat -->
+            <div class="col-6 col-lg-3 col-md-6">
+              <div class="card">
+                <div class="card-body px-4 py-4-5">
+                  <div class="row">
+                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                      <div class="stats-icon blue mb-2">
+                        <i class="iconly-boldArrow"></i>
+                      </div>
+                    </div>
+                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                      <h6 class="text-muted font-semibold">Total Pulang Cepat:</h6>
+                      <h6 class="font-extrabold mb-0">{{ $totalPulangCepat ?? '' }}</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Jumlah Terlambat -->
+            <div class="col-6 col-lg-3 col-md-6">
+              <div class="card">
+                <div class="card-body px-4 py-4-5">
+                  <div class="row">
+                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                      <div class="stats-icon red mb-2">
+                        <i class="iconly-boldClock"></i>
+                      </div>
+                    </div>
+                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                      <h6 class="text-muted font-semibold">Jumlah Terlambat:</h6>
+                      <h6 class="font-extrabold mb-0">{{ $jumlahTerlambat ?? '' }}</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Jumlah Tepat Waktu -->
+            <div class="col-6 col-lg-3 col-md-6">
+              <div class="card">
+                <div class="card-body px-4 py-4-5">
+                  <div class="row">
+                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                      <div class="stats-icon purple mb-2">
+                        <i class="iconly-boldCheck"></i>
+                      </div>
+                    </div>
+                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                      <h6 class="text-muted font-semibold">Jumlah Tepat Waktu:</h6>
+                      <h6 class="font-extrabold mb-0">{{ $jumlahTepatWaktu ?? '' }}</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Persentase Kehadiran -->
+            <div class="col-6 col-lg-3 col-md-6">
+              <div class="card">
+                <div class="card-body px-4 py-4-5">
+                  <div class="row">
+                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                      <div class="stats-icon orange mb-2">
+                        <i class="iconly-boldPieChart"></i>
+                      </div>
+                    </div>
+                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                      <h6 class="text-muted font-semibold">Persentase Kehadiran:</h6>
+                      <h6 class="font-extrabold mb-0">{{ $persentaseHadir ?? '' }}%</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
     </div>
     <script type="text/javascript" class="init">
     $(document).ready(function () {

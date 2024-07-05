@@ -11,7 +11,7 @@ use Redirect;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ImportUser;
 use App\Exports\ExportUser;
-use Yajra\DataTables\DataTables;  
+use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\DB;
 
 
@@ -143,6 +143,18 @@ class UserController extends Controller
        $user = \App\Models\User::findOrFail($id);
        $user->nip = $request->get('nip');
        $user->name = $request->get('name');
+       $user->gelar_depan = $request->get('gelar_depan');
+       $user->gelar_belakang = $request->get('gelar_belakang');
+       $user->tipe_pegawai = $request->get('tipe_pegawai');
+       $user->agama = $request->get('agama');
+       $user->kedudukan_pns = $request->get('kedudukan_pns');
+       $user->status_pegawai = $request->get('status_pegawai');
+       $user->jenis_kelamin = $request->get('jenis_kelamin');
+       $user->golongan = $request->get('golongan');
+       $user->eselon = $request->get('eselon');
+       $user->jenis_fungsional = $request->get('jenis_fungsional');
+       $user->tanggal_lahir = $request->get('tanggal_lahir');
+       $user->tempat_lahir = $request->get('tempat_lahir');
        $user->school_id = $request->get('school_id');
        $user->role_id = $request->get('role_id');
        $user->email = $request->get('email');

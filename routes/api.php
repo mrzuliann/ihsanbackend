@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/holidays',  [App\Http\Controllers\API\PresensiController::class, 'holidays']);
     Route::get('/galery',  [App\Http\Controllers\API\PresensiController::class, 'galery']);
     Route::get('/event',  [App\Http\Controllers\API\PresensiController::class, 'event']);
+    Route::get('/laporandetail',  [App\Http\Controllers\API\PresensiController::class, 'laporandetail']);
     Route::get('/broadcast',  [App\Http\Controllers\API\PresensiController::class, 'broadcast']);
     Route::post('/loginsession',  [App\Http\Controllers\API\PresensiController::class, 'loginsession']);
     Route::get('/laporan',  [App\Http\Controllers\API\PresensiController::class, 'laporan']);

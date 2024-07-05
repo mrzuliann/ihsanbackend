@@ -15,6 +15,7 @@ use App\Models\Event;
 use App\Models\HolidayDate;
 use App\Models\PresensiDetail;
 use App\Models\Galery;
+use Illuminate\Support\Facades\Auth;
 use App\Models\PresensiHourDay;
 use App\Models\LoginSession;
 use Auth;
@@ -244,6 +245,48 @@ class PresensiController extends Controller
             'message' => 'Sukses simpan'
         ]);
     }
+
+    public function laporanDetail()
+{
+    // Mendapatkan informasi pengguna yang sedang login
+    $user = Auth::user(); // Pastikan Anda telah mengimpor 'use Illuminate\Support\Facades\Auth;'
+    // Mendapatkan tanggal awal dan akhir bulan saat ini
+    $tanggalAwalBulan = Carbon::now()->startOfMonth()->toDateString();
+    $tanggalAkhirBulan = Carbon::now()->endOfMonth()->toDateString();
+    // Mendapatkan daftar tanggal libur dari tabel holidays
+    $tanggalLibur = HolidayDate::pluck('holiday_name', 'holiday_date')->toArray();
+    // Menyaring data presensi berdasarkan ID pengguna yang saat ini diautentikasi
+    $presensiDetails = PresensiHourDay::select(
+            'tanggal',
+            'masuk',
+            'pulang',
+            'pd_potongan_tpp' // Menambahkan kolom potongan_tpp
+        )
+        ->where('user_id', $user->id) // Menyaring berdasarkan ID pengguna yang diautentikasi
+        ->whereBetween('tanggal', [$tanggalAwalBulan, $tanggalAkhirBulan])
+        ->orderBy('tanggal')
+        ->get();
+
+    // Menandai hari libur dalam respons API
+    foreach ($presensiDetails as $presensi) {
+        $tanggal = $presensi->tanggal;
+        if (array_key_exists($tanggal, $tanggalLibur)) {
+            // Jika tanggal presensi adalah hari libur, tambahkan flag hari libur
+            $presensi->is_hari_libur = true;
+            $presensi->deskripsi_hari_libur = $tanggalLibur[$tanggal];
+        } else {
+            $presensi->is_hari_libur = false;
+            $presensi->deskripsi_hari_libur = null;
+        }
+    }
+
+    return response()->json([
+        'success' => true,
+        'data' => $presensiDetails,
+        'message' => 'Sukses menampilkan detail presensi harian dari tanggal 1 sampai akhir bulan'
+    ]);
+}
+
 
     public function Broadcast()
     {
